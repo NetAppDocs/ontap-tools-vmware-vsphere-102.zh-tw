@@ -1,0 +1,58 @@
+---
+permalink: configure/install-nfs-vaai-plug-in.html 
+sidebar: sidebar 
+keywords:  
+summary: 您可以使用適用於 VMware vSphere 的 ONTAP 工具、安裝適用於 VMware vStorage API for Array Integration （ VAAI\ ）的 NetApp NFS 外掛程式。 
+---
+= 安裝NFS VAAI外掛程式
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用適用於 VMware vSphere 的 ONTAP 工具、安裝適用於 vSphere API for Array Integration （ VAAI ）的 NetApp NFS 外掛程式。
+
+*您需要的是什麼*
+
+* 您應該已(`.vib`從 NetApp 支援網站下載 NFS 外掛程式 for VAAI 的安裝套件。 https://mysupport.netapp.com/site/products/all/details/nfsplugin-vmware-vaai/downloads-tab["適用於VMware VAAI的NetApp NFS外掛程式"]
+* 您應該已安裝 ESXi 主機 7.0U3 最新版修補程式、以及 ONTAP 9.12.1Px （最新版 P ） 9.13.1Px 、 9.14.1Px 或更新版本。
+* 您應該已開啟ESXi主機電源、並已掛載NFS資料存放區。
+* 您應該已將 `DataMover.HardwareAcceleratedMove`、 `DataMover.HardwareAcceleratedInit`和 `VMFS3.HardwareAcceleratedLocking`主機設定的值設為「 '1' 」。
++
+當「建議設定」對話方塊更新時、ESXi主機上會自動設定這些值。
+
+* 您應該已使用 `vserver nfs modify -vserver vserver_name -vstorage enabled`命令在儲存虛擬機器（ SVM ）上啟用 vStorage 選項。
+* 如果您使用的是 NetApp NFS VAAI 外掛程式 2.0 、則應該使用 ESXi 7.0U3 或更新版本。
+* 您應該擁有 vSphere 7.0U3 最新的修補程式版本、因為 vSphere 6.5 已過時。
+* NetApp NFS VAAI 外掛程式 2.0.1 （組建 16 ）支援 vSphere 8.x 。
+
+
+*步驟*
+
+. 從 ONTAP Tools for VMware vSphere 首頁按一下 * 設定 * 。
+. 按一下「* NFS VAAI工具*索引標籤」。
+. 當 VAAI 外掛程式上傳至 vCenter Server 時、請在 * 現有版本 * 區段中選取 * 變更 * 。如果 VAAI 外掛程式未上傳至 vCenter Server 、請選取 * 上傳 * 按鈕。
+. 瀏覽並選取 `.vib`檔案、然後按一下 * 上傳 * 將檔案上傳至 ONTAP 工具。
+. 按一下 * 在 ESXI 主機上安裝 * 、選取要安裝 NFS VAAI 外掛程式的 ESXi 主機、然後按一下 * 安裝 * 。
++
+只會顯示符合外掛程式安裝資格的 ESXi 主機。您應依照螢幕上的指示完成安裝。您可以在 vSphere Web Client 的「近期工作」區段中監控安裝進度。
+
+. 安裝完成後、您應該手動重新啟動 ESXi 主機。
++
+當 VMware 管理員重新開機 ESXi 主機時、適用於 VMware vSphere 的 ONTAP 工具會自動偵測 NFS VAAI 外掛程式。您不需要執行額外步驟來啟用外掛程式。
+
+
+
+
+
+=== 為 VAAI 複本卸載設定正確的 NFS 匯出原則
+
+在 NFS 環境中設定 VAAI 時、匯出原則規則應以下列需求為考量：
+
+* 相關的 Volume 需要允許 NFSv4 呼叫。
+* 根使用者應保持 root 身分、所有交會父磁碟區均應允許 NFSv4 。
+* 需要在相關的 NFS 伺服器上設定 VAAI 支援選項。
+
+
+如需程序的詳細資訊、請參閱 https://kb.netapp.com/on-prem/ontap/DM/VAAI/VAAI-KBs/Configure_the_correct_NFS_export_policies_for_VAAI_copy_offload["為 VAAI 複本卸載設定正確的 NFS 匯出原則"]知識庫文章。

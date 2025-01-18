@@ -1,0 +1,54 @@
+---
+permalink: configure/registration-process.html 
+sidebar: sidebar 
+keywords:  
+summary: 您可以使用適用於 VMware vSphere 遠端外掛程式介面的 ONTAP 工具、向 vCenter Server 執行個體註冊和取消註冊 VASA 提供者。 
+---
+= 向 vCenter Server 執行個體登錄 VASA Provider
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用適用於 VMware vSphere 遠端外掛程式介面的 ONTAP 工具、向 vCenter Server 執行個體註冊和取消註冊 VASA 提供者。Vasa Provider Settings 區段顯示所選 vCenter Server 的 VASA Provider 登錄狀態。
+
+*步驟*
+
+. 使用登入 vSphere 用戶端 `\https://vcenterip/ui`
+. 在捷徑頁面中、按一下外掛程式區段下方的 * NetApp ONTAP tools* 。
+. 選擇 * 設定 * > * VASA 供應商設定 * 。Vasa 提供者註冊狀態顯示為「尚未註冊」。
+. 按一下 * 登錄 * 按鈕以登錄 VASA Provider 。
+. 輸入 VASA 提供者的名稱、並提供 ONTAP 工具以取得 VMware vSphere 應用程式使用者認證、然後按一下 * 註冊 * 。
+. 成功註冊和頁面重新整理時、 UI 會顯示已註冊 VASA 提供者的狀態、名稱和版本。取消註冊動作即會啟動。
+. 如果您要取消登錄 VASA 提供者、請執行下列步驟：
++
+.. 若要取消註冊 VASA 供應商、請選取畫面底部的 * 取消註冊 * 選項。
+.. 在「 * 取消登錄 VASA 供應商 * 」頁面中、您可以看到 VASA 供應商的名稱。在此頁面中提供應用程式使用者認證、然後按一下 * 取消登錄 * 。
+
+
+
+
+*完成後*
+
+確認已登入的 VASA 提供者已列於 vCenter 用戶端 UI 的 VASA 提供者和遠端外掛程式 UI 之下。
+
+*步驟*
+
+. 若要從 vCenter 用戶端 UI 驗證 VASA Provider 、請執行下列步驟：
++
+.. 瀏覽至 vCenter Server 。
+.. 使用系統管理員認證登入。
+.. 選擇 * 儲存供應商 * 。
+.. 選擇*設定*。
+.. 在儲存供應商 / 儲存設備後端之下、確認已登入的 VASA 供應商已正確列出。
+
+
+. 若要從遠端外掛程式 UI 驗證 VASA Provider 、請執行下列步驟：
++
+.. 使用登入 vSphere 用戶端 `\https://vcenterip/ui`
+.. 在捷徑頁面中、按一下外掛程式區段下方的 * NetApp ONTAP tools* 。
+.. 您可以在概述頁面和 * 設定 * > * VASA 提供者設定 * 頁面中查看已註冊的 VASA 提供者。
+
+
+

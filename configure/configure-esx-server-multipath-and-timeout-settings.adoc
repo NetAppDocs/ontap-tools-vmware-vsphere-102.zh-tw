@@ -1,0 +1,34 @@
+---
+permalink: configure/configure-esx-server-multipath-and-timeout-settings.html 
+sidebar: sidebar 
+keywords:  
+summary: 適用於 VMware vSphere 的 ONTAP 工具會檢查及設定 ESXi 主機多重路徑設定和 HBA 逾時設定、這些設定最適合搭配 NetApp 儲存系統使用。 
+---
+= 設定 ESXi 伺服器多重路徑和逾時設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware vSphere的支援VMware vSphere工具可檢查及設定ESXi主機多重路徑設定、以及最適合搭配NetApp儲存系統使用的HBA逾時設定。ONTAP
+
+*關於此工作*
+
+視組態和系統負載而定、此程序可能需要很長時間。工作進度會顯示在「近期工作」面板中。工作完成時、主機狀態警示圖示會以正常圖示或「等待重新開機」圖示取代。
+
+*步驟*
+
+. 從 VMware vSphere Web Client 首頁、按一下 * 主機與叢集 * 。
+. 在主機上按一下滑鼠右鍵、然後選取 * NetApp ONTAP tools* > * 更新主機資料 * 。
+. 在捷徑頁面中、按一下外掛程式區段下方的 * NetApp ONTAP tools* 。
+. 前往 ONTAP 工具 for VMware vSphere 外掛程式概觀（儀表板）中的 ESXi 主機規範卡。
+. 選取 * 套用建議的設定 * 連結。
+. 在 * 套用建議的主機設定 * 視窗中、選取您要符合 NetApp 建議主機設定的主機、然後按一下 * 下一步 * 。
++
+
+NOTE: 您可以展開 ESXi 主機以查看目前的值。
+
+. 在「設定」頁面中、視需要選取建議的值。
+. 在摘要窗格中，檢查這些值，然後按一下 * 完成 * 。您可以在最近的工作面板中追蹤進度。
+

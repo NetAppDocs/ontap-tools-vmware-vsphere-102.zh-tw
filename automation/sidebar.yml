@@ -1,0 +1,8 @@
+---
+section: automation
+title: 使用REST API自動化
+entries:
+- title: REST API總覽
+  url: "/automation/overview-rest-apis.html"
+- title: 開始使用REST API
+  url: "/automation/get-started-with-the-rest-api.html"

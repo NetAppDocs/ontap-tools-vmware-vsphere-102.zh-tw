@@ -1,0 +1,26 @@
+---
+permalink: configure/configure-network-access.html 
+sidebar: sidebar 
+keywords:  
+summary: 您可以選擇允許少數特定 ESXi 主機位址進行資料存放區裝載作業。 
+---
+= 設定網路存取
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+當您擁有多個 ESXi 主機 IP 位址時、預設會將主機中所有探索到的 IP 位址新增至匯出原則。如果您不想將所有 IP 位址新增至匯出原則、請提供一個設定、以允許以逗號分隔的清單或範圍或 CIDR 中的特定 IP 位址、或是每個 vCenter 的三個位址組合。
+
+您可以選擇允許幾個特定的 ESXi 主機位址進行資料存放區裝載作業。如果未提供此設定、匯出原則會新增在預先掛載步驟中探索到的所有 IP 位址。如果提供此設定、則 VMware vSphere 的 ONTAP 工具只會新增屬於所列 IP 位址或範圍的工具。如果主機的 IP 位址都不屬於所列的 IP 位址、則該主機上的掛載將會失敗。
+
+.步驟
+. 使用登入 vSphere 用戶端 `\https://vcenterip/ui`
+. 在捷徑頁面中、按一下外掛程式區段下方的 * NetApp ONTAP tools* 。
+. 在 ONTAP 工具的左窗格中、瀏覽至 * 設定 * > * 管理網路存取 * > * 編輯 * 。
++
+使用逗號（、）分隔 IP 位址。您可以指定特定的 IP 位址、 IP 位址範圍或 IPv6 位址。
+
+. 按一下「 * 儲存 * 」。
+

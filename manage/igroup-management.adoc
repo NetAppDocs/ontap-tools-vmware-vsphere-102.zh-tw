@@ -1,0 +1,28 @@
+---
+permalink: manage/igroup-management.html 
+sidebar: sidebar 
+keywords:  
+summary: 在 ONTAP 中、匯出原則用於提供對主機的磁碟區資料路徑存取、而群組則用於提供 LUN 資料路徑存取權給 ESXi 主機。 
+---
+= 管理 igroup 和匯出原則
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 ONTAP 中、匯出原則用於提供對主機的 Volume 資料路徑存取、而啟動器群組（ igroup ）則用於提供對 ESXi 主機的邏輯單元編號（ LUN ）資料路徑存取。適用於 VMware vSphere 的 ONTAP 工具可讓您輕鬆直覺地建立 igroup 、並提供豐富的端對端工作流程。為了確保一致性、不支援在儲存平台上直接建立 iGroup 。
+
+當虛擬磁碟區資料存放區建立或掛載至 vCenter Server 中的主機時、主機必須根據資料存放區的傳輸協定類型、獲得對磁碟區（ NFS ）或 LUN （ iSCSI ）的存取權。
+
+匯出原則是動態的、新的匯出原則是以 trident -uuid 的命名格式建立。在 ONTAP 系統管理員上、前往 * 儲存 * > * 儲存 VM* > * [ 儲存 VM 名稱 ]* > * 設定 * > * 匯出原則 * 以查看匯出原則。
+
+適用於 VMware vSphere 的 ONTAP 工具中的群組和匯出原則是以有效率的方式進行管理、並提供下列優點：
+
+* 支援移轉的匯出原則和 igroup 。
+* 不中斷虛擬機器輸入與輸出作業。
+* 無需手動介入即可在其他主機上安裝。
+* 將管理 igroup 和匯出原則的需求降到最低。
+* 垃圾收集器會自動刪除所有未使用的受管理 igroup 、並定期匯出原則。
+* 如果在主機叢集層級配置資料存放區、則會在主機叢集下建立群組群組、並在主機叢集下新增至群組群組的所有主機啟動器。
+

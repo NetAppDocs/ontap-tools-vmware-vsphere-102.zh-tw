@@ -1,0 +1,146 @@
+---
+permalink: upgrade/upgrade-error-codes.html 
+sidebar: sidebar 
+keywords: upgrade 
+summary: 本頁概述適用於 VMware vSphere 系統的 ONTAP 工具升級作業的錯誤代碼。 
+---
+= 升級錯誤代碼
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可能會在執行 VMware vSphere 升級作業的 ONTAP 工具期間遇到錯誤代碼。錯誤代碼長度為五位數、前兩位數代表發生問題的指令碼、後三位數代表該指令碼內的特定工作流程。
+
+所有錯誤記錄都會記錄在 ansible-perl-errors.log 檔案中、以便輕鬆追蹤及解決問題。此記錄檔包含錯誤代碼和失敗的 Ansible 工作。
+
+
+NOTE: 本頁提供的錯誤代碼僅供參考。如果錯誤持續發生、或沒有提及解決方案、請聯絡支援團隊。
+
+下表列出錯誤代碼和對應的檔案名稱。
+
+|===
+
+
+| * 錯誤代碼 * | * 指令碼名稱 * 
+
+
+| 00 | firstboot-network-config.pl 、模式部署 
+
+
+| 01 | firstboot-network-config.pl 、模式升級 
+
+
+| 02 | firstboot-inputs-validation.pl 
+
+
+| 03 | firstboot-deploy-otv-ng.pl 、部署、 ha 
+
+
+| 04 | firstboot-deploy-otv-ng.pl 、部署、非 ha 
+
+
+| 05 | firstboot-deploy-otv-ng.pl 、重新開機 
+
+
+| 06 | firstboot-deploy-otv-ng.pl 、升級、 h 
+
+
+| 07 | firstboot-deploy-otv-ng.pl 、升級、非 ha 
+
+
+| 08 | firstboot-otv-recovery.pl 
+|===
+錯誤代碼的最後三位數字表示指令碼內的特定工作流程錯誤：
+
+|===
+
+
+| * 升級錯誤代碼 * | *工作流程* | * 解決方法 * 
+
+
+| 063 | 將內容複製到恢復磁碟區失敗 | 執行快照型還原。 
+
+
+| 068 | Debian 套件復原失敗 | 執行快照型還原。 
+
+
+| 069 | 還原檔案失敗 | 執行快照型還原。 
+
+
+| 070 | 刪除備份失敗 | 執行快照型還原。 
+
+
+| 071 | Kubernetes 叢集不健全 | 執行快照型還原。 
+
+
+| 072 | cr 檔案不存在於監控磁碟中 | 執行快照型還原。 
+
+
+| 073 | 將強制協調旗標設定為假時套用 CR 失敗 | 執行快照型還原。 
+
+
+| 074 | 掛載 ISO 失敗 | 重試升級。 
+
+
+| 075 | 升級預先檢查失敗 | 重試升級。 
+
+
+| 076 | 登錄升級失敗 | 執行快照型還原。 
+
+
+| 077 | 登錄復原失敗 | 執行快照型還原。 
+
+
+| 078 | 操作員升級失敗 | 執行快照型還原。 
+
+
+| 079 | 操作員復原失敗 | 執行快照型還原。 
+
+
+| 080 | 服務升級失敗 | 執行快照型還原。 
+
+
+| 081 | 服務復原失敗 | 執行快照型還原。 
+
+
+| 082 | 從容器刪除舊映像失敗 | 執行快照型還原。 
+
+
+| 083 | 刪除備份失敗 | 執行快照型還原。 
+
+
+| 084 | 將 JobManager 變更回正式作業失敗 | 執行快照型還原。 
+
+
+| 085 | 建立 CA 憑證密碼失敗 | 執行快照型還原。 
+
+
+| 086 | 無法建立伺服器 / 私密金鑰憑證密碼 | 執行快照型還原。 
+
+
+| 087 | 失敗！無法完成從 10.0 版到 10.1 版的升級步驟 | 升級後步驟失敗。 
+
+
+| 088 | 設定日誌輪轉為日誌檔失敗 | 重試升級。 
+
+
+| 089 | 變更摘要記錄輪轉組態檔的擁有權失敗 | 重試升級。 
+
+
+| 091 | iSCSI 升級失敗 | 重試升級。 
+
+
+| 092 | iSCSI 復原失敗 | 重試升級。 
+
+
+| 093 | Trident 升級失敗 | 重試升級。 
+
+
+| 094 | Trident 復原失敗 | 重試升級。 
+
+
+| 095 | Debian 升級失敗 | 無法恢復以進行 debian 升級。服務已升級、新的 Pod 將會執行 
+|===
+深入瞭解 https://kb.netapp.com/data-mgmt/OTV/VSC_Kbs/How_to_restore_ONTAP_tools_for_VMware_vSphere_if_upgrade_fails_from_version_10.0_to_10.1["如果從 10.0 版升級至 10.1 版失敗、如何還原適用於 VMware vSphere 的 ONTAP 工具"]

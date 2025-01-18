@@ -1,0 +1,41 @@
+---
+permalink: concepts/ontap-roles.html 
+sidebar: sidebar 
+keywords:  
+summary: '您可以設定數個建議的 ONTAP 角色、以使用適用於 VMware vSphere 的 ONTAP 工具和角色型存取控制 \(RBAC\ ）。這些角色包含執行 ONTAP 工具所需儲存作業以執行 VMware vSphere 工作所需的 ONTAP 權限。' 
+---
+= VMware vSphere ONTAP 工具的建議 ONTAP 角色
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以設定數ONTAP 個建議的VMware vCenter角色、以搭配ONTAP VMware vSphere的VMware VMware vCenter及角色型存取控制（RBAC）等各種功能。這些角色包含執行 ONTAP 工具執行 VMware vSphere 工作所需的 ONTAP 權限。
+
+若要建立新的使用者角色、您應該以執行 ONTAP 的儲存系統管理員身分登入。您可以使用 ONTAP 系統管理員 9.8P1 或更新版本來建立 ONTAP 角色。
+
+每個 ONTAP 角色都有相關的使用者名稱和密碼配對、構成角色的認證。如果您未使用這些認證登入、則無法存取與該角色相關的儲存作業。
+
+為了安全起見、 VMware vSphere 特定 ONTAP 角色的 ONTAP 工具會以階層順序排列。這表示第一個角色的限制性最大、而且只有與 VMware vSphere 儲存作業最基本的 ONTAP 工具集相關的權限。下一個角色包括其本身的權限、以及與前一個角色相關的所有權限。對於支援的儲存作業、每個額外角色的限制都較少。
+
+以下是在 VMware vSphere 中使用 ONTAP 工具時、建議使用的一些 ONTAP RBAC 角色。建立這些角色之後、您可以將其指派給必須執行儲存相關工作的使用者、例如資源配置虛擬機器。
+
+|===
+
+
+| *角色* | * 權限 * 
+
+
+| 探索 | 此角色可讓您新增儲存系統。 
+
+
+| 建立儲存設備 | 此角色可讓您建立儲存設備。此角色也包含與探索角色相關聯的所有權限。 
+
+
+| 修改儲存設備 | 此角色可讓您修改儲存設備。此角色也包含與探索角色和建立儲存角色相關聯的所有權限。 
+
+
+| 摧毀儲存設備 | 此角色可讓您銷毀儲存設備。此角色也包含與探索角色、建立儲存角色及修改儲存角色相關的所有權限。 
+|===
+如果您使用適用於 VMware vSphere 的 ONTAP 工具、也應該設定原則型管理（ PBM ）角色。此角色可讓您使用儲存原則來管理儲存設備。這項職務要求您也必須設定「探索」角色。

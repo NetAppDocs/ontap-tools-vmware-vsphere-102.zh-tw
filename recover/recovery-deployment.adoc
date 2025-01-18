@@ -1,0 +1,61 @@
+---
+permalink: recover/recovery-deployment.html 
+sidebar: sidebar 
+keywords:  
+summary: 如果您遺失用於 VMware vSphere 設定的 ONTAP 工具、但 ONTAP 仍在運作、則可以使用 ONTAP 來恢復用於 VMware vSphere 設定的 ONTAP 工具。當您遺失設定時、請將設定正常關閉。 
+---
+= 針對 VMware vSphere 設定復原您的 ONTAP 工具
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您遺失用於 VMware vSphere 設定的 ONTAP 工具、您可以使用 ONTAP Volume 資料中的可用資料、來復原用於 VMware vSphere 設定的 ONTAP 工具。當您遺失設定時、請將設定正常關閉。
+
+
+NOTE: 如果 vCenter Server 或 ONTAP 資料管理軟體發生問題、您將無法恢復用於 VMware vSphere 設定的 ONTAP 工具。
+
+*步驟*
+
+. 登入 vSphere 伺服器。
+. 瀏覽至您建立的資源集區、節點叢集或您要部署 OVA 的主機。
+. 以滑鼠右鍵按一下所需的位置、然後選取 * 部署 OVF 範本 * 。
+. 透過 .ova_ 檔案的 URL 選取 OVA 檔案、或瀏覽至儲存 _.ova_ 檔案的資料夾、然後按一下 * 下一步 * 。
++
+
+NOTE: 您應該使用與安裝恢復設定相同的 OVA 建置。
+
+. 選取虛擬機器的名稱和資料夾、然後選取 * 下一步 * 。
+. 選取主機並選取 * 下一步 * 。
+. 檢閱範本摘要、然後選取 * 下一步 * 。
+. 閱讀並接受授權合約、然後選擇 * 下一步 * 。
+. 在 * 組態 * 視窗中、選取 * 恢復 * 選項。
+. 在 * 選取儲存設備 * 視窗中、選取組態和磁碟檔案的儲存設備。
+. 在 * 選取網路 * 視窗中、為每個來源網路選取目的地網路。
++
+
+NOTE: 您需要保留負載平衡器 IP 位址和 Kubernetes API Server IP 位址。您可以變更節點 IP 位址、也可以保留相同的 IP 位址。
+
+. 在 * 自訂範本 * 視窗中、輸入必要的詳細資料、然後按一下 * 下一步 *
++
+
+NOTE: 啟用 SVM 範圍時、您應該已啟用 SVM 支援、並提供管理 IP 位址。
+
+. 查看 * 準備完成 * 視窗中的詳細資料、選取 * 完成 * 。
++
+在建立部署工作時、進度會顯示在 vSphere 工作列中。
+
+. 在工作完成後開啟虛擬機器電源。
++
+安裝隨即開始。您可以在 VM 的 Web 主控台中追蹤安裝進度。在安裝過程中、會驗證節點組態。在 OVF 表單的自訂範本下的不同區段下提供的輸入都會經過驗證。若有任何差異、對話方塊會提示您採取修正行動。
+
+. 在對話方塊提示中進行必要的變更。使用 Tab 鍵瀏覽面板、然後選取 * 確定 * 。
++
+提供的值將再次驗證。VMware vSphere 的 ONTAP 工具可讓您嘗試三次修正任何無效值。如果三次嘗試後仍無法修正問題、產品安裝將會停止、建議您嘗試在新的 VM 上安裝。
+
+
+
+安裝成功之後、 Web 主控台會顯示 VMware vSphere 的 ONTAP 工具狀態。
+
+安裝成功之後、您應該依照頁面中的準則、手動編輯硬體需求 link:../deploy/prerequisites.html["部署 VMware vSphere ONTAP 工具的必要條件"] 。

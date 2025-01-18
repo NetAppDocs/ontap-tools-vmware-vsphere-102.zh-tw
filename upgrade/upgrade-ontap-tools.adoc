@@ -1,0 +1,79 @@
+---
+permalink: upgrade/upgrade-ontap-tools.html 
+sidebar: sidebar 
+keywords: upgrade 
+summary: HA 和非 HA 部署均支援升級。 
+---
+= 從適用於 VMware vSphere 10.x 的 ONTAP 工具升級至 10.2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+HA 和非 HA 部署均支援升級。
+
+
+NOTE: 若要從適用於 VMware vSphere 10.0 的 ONTAP 工具升級至 10.2 版本、您必須先升級至適用於 VMware vSphere 10.1 的 ONTAP 工具、然後再升級至 10.2 版本。
+
+*開始之前*
+
+如果您要從適用於 VMware vSphere 10.0 的 ONTAP 工具升級至 10.1 、則必須先完成下列步驟、才能繼續執行升級工作：
+
+* 啟用診斷 *
+
+. 從 vCenter Server 開啟 ONTAP 工具的主控台。
+. 以維護使用者身分登入。
+. 輸入 *4* 選擇 Support and Diagnostics （支持和診斷）。
+. 輸入 *2* 以選擇啟用遠端診斷存取。
+. 輸入 *y* 以設定您選擇的密碼。
+. 從終端機 / 終端機登入 VM IP 位址、使用者身分為上一步設定的「 iag 」和密碼。
+
+
+* 備份 MongoDB*
+
+執行下列命令以備份 MongoDB ：
+
+* kN 執行 -it NtV-MongoDB-0sh - kn 是 kubectl -n NtV-system 的別名。
+* ENV | Grep MongoDB_root_password - 在 Pod 中執行此命令。
+* 'exit' - 執行此動作即可從 Pod 中取出。
+* kN 執行 NtV-MongoDB-0--mongodump -u root -p MongoDB_root_password --archive =/tmp/mongodb-backup.gz --gzip - 執行此命令以取代上述命令中設定的 Mongo_root_password 。
+* KN CP NTV-MongoDB-0:/tmp/mongodb-backup.gz ./mongodb-backup.gz - 執行此命令、將使用上述命令建立的 MongoDB 備份從 Pod 複製到主機。
+
+
+* 拍攝所有 Volume 的快照 *
+
+* 執行 'kn Get PVC' 命令並儲存命令的輸出。
+* 使用下列其中一種方法、逐一拍攝所有磁碟區的快照：
++
+** 從 CLI 執行命令 _volume snapshot create -vserver <vserver_name> -volume <volume_name> -snapshot <snapshot_name> _
+** 從 ONTAP 系統管理員使用者介面、在搜尋列中依磁碟區名稱搜尋該磁碟區、然後按一下該名稱來開啟該磁碟區。移至快照並新增該磁碟區的快照。
+
+
+
+
+* 在 vCenter 中擷取適用於 VMware vSphere VM 的 ONTAP 工具快照（ HA 部署時為 3 個 VM 、非 HA 部署時為 1 個 VM ） *
+
+* 在 vSphere 用戶端使用者介面中、選取虛擬機器。
+* 移至「快照」標籤、然後按一下「 * 拍攝快照 * 」按鈕。
+
+
+在執行升級之前、請從記錄套件中刪除已完成且前置字首為「 genere-support-bundle-job 」的 Pod 。如果正在產生支援套件、請等待其完成、然後刪除 Pod 。
+
+*步驟*
+
+. 將適用於 VMware vSphere 的 ONTAP 工具升級 ISO 上傳至內容庫。
+. 在主 VM 頁面中，選擇 * Actions * > * Edit Settings*
+. 在 * CD/DVD 磁碟機 * 欄位下的編輯設定視窗中、選取內容庫 ISO 檔案。
+. 選取 ISO 檔案、然後按一下 * 確定 * 。在 *CD/DVD 驅動器 * 字段中選擇 Connected （已連接）複選框。image:../media/primaryvm-edit-settings.png["編輯設定"]
+. 從 vCenter Server 開啟 ONTAP 工具的主控台。
+. 以維護使用者身分登入。
+. 輸入 *3* 選擇系統組態功能表。
+. 輸入 *7* 選擇升級選項。
+. 升級時、系統會自動執行下列動作：
++
+.. 憑證升級
+.. 遠端外掛程式升級
+
+
+

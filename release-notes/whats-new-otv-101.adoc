@@ -1,0 +1,50 @@
+---
+permalink: release-notes/whats-new-otv-102.html 
+sidebar: sidebar 
+keywords: 'what"s new, release notes, otv, 10.2, ONTAP tools for VMware vSphere' 
+summary: 瞭解適用於 VMware vSphere 10.2 的 ONTAP 工具所提供的新功能。 
+---
+= 適用於 VMware vSphere 10.2 的 ONTAP 工具的新增功能
+:allow-uri-read: 
+
+
+[role="lead"]
+瞭解適用於 VMware vSphere 10.2 的 ONTAP 工具所提供的新功能。
+
+[cols="30%,70%"]
+|===
+| 更新 | 說明 
+
+
+ a| 
+xref:../manage/storage-view-datastore.html#ontap-storage-views-for-nfs-datastores[NVMe 傳輸協定支援]
+ a| 
+適用於 VMware vSphere 10.2 的 ONTAP 工具同時支援 NVMe / FC 和 NVMe / TCP 傳輸協定、以配置 VMFS 資料存放區。vCenter 介面內的無縫整合式工作流程可簡化資料存放區資源配置。使用 NVMe / FC 和 NVMe / TCP 通訊協定來配置 VMFS 資料存放區的優點包括最佳化效能、大規模擴充性、以及有效率地處理多個資料要求、大幅縮短延遲時間、以及有效的資源管理。相較於舊版資料傳輸協定、 NVMe 型儲存 IO 的 CPU 使用率最高可降低 50% 。
+
+
+
+ a| 
+xref:../configure/create-vvols-datastore.html[Fibre Channel （ FC ）傳輸協定支援]
+ a| 
+適用於 VMware vSphere 10.2 的 ONTAP 工具支援 FC 傳輸協定來配置 vVols 和 VMFS 資料存放區。FC 傳輸協定支援的優點包括高效能、可靠性和穩定性、擴充性、增強的安全性、以及有效率的資源管理。
+
+
+
+ a| 
+xref:../configure/protect-cluster.html[SnapMirror 主動同步]
+ a| 
+適用於 VMware vSphere 10.2 的 ONTAP 工具支援 SnapMirror 主動式同步、包括全新的保護叢集功能、可提供端點對端組態工作流程、在 vCenter UI 內建置 vSphere Metro 儲存設備。如此一來、即使整個站台發生故障、商業服務仍能繼續運作的延伸叢集組態也能支援應用程式使用次要複本進行透明容錯移轉。
+
+[NOTE]
+====
+SnapMirror 精靈可設定 SnapMirror 非同步和同步、以及 SnapMirror 主動式同步。
+
+====
+
+
+ a| 
+xref:../protect/enable-storage-replication-adapter.html[儲存複寫介面卡（ SRA ）增強功能]
+ a| 
+SRA 實作 VMware Site Recovery Manager （ SRM ）規格型災難恢復（ DR ）解決方案。透過 SRM 整合的 SnapMirror 主動式同步可支援災難恢復規劃和協調解決方案、以提供透明的應用程式容錯移轉。
+
+|===

@@ -1,0 +1,86 @@
+---
+permalink: configure/esxi-host-values.html 
+sidebar: sidebar 
+keywords:  
+summary: 您可以使用ONTAP VMware vSphere的VMware VMware vCenter功能、在ESXi主機上設定逾時和其他值、以確保最佳效能和成功的容錯移轉。適用於 VMware vSphere 的 ONTAP 工具集的價值是以內部 NetApp 測試為基礎。 
+---
+= 設定 ESXi 主機值
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP VMware vSphere的VMware VMware vCenter功能、在ESXi主機上設定逾時和其他值、以確保最佳效能和成功的容錯移轉。適用於 VMware vSphere 的 ONTAP 工具集的價值是以內部 NetApp 測試為基礎。
+
+您可以在ESXi主機上設定下列值：
+
+
+
+== HA/CNA 介面卡設定
+
+設定 NetApp 儲存系統的建議 HBA 逾時設定。
+
+* *磁碟.QFullSampleSize*
++
+將所有組態的此值設為 32 。設定此值有助於避免I/O錯誤。
+
+* *磁碟QFullTrresh*
++
+將所有組態的此值設為 8 。設定此值有助於避免I/O錯誤。
+
+* * Emulex FC HBA超時*
++
+使用預設值。
+
+* * QLogic FC HBA逾時*
++
+使用預設值。
+
+
+
+
+
+== MPIO 設定
+
+MPIO 設定可定義 NetApp 儲存系統的偏好路徑。MPIO 設定可決定哪些可用路徑已最佳化（而非透過互連纜線的非最佳化路徑）、並將偏好的路徑設定為這些路徑之一。
+
+在高效能環境中、或是當您使用單一 LUN 資料存放區測試效能時、請考慮將循環（ VMW_PSP_RR ）路徑選擇原則（ PSP ）的負載平衡設定、從預設的 IOPS 設定 1000 變更為 1 。
+
+
+
+== NFS 設定
+
+* * Net.TcpipHeapSiz*
++
+將此值設為 32 。
+
+* * Net.TcpipHeapMax*
++
+將此值設為 1024MB 。
+
+* * NFS.MaxVolumes.*
++
+將此值設為 256 。
+
+* * NFS41.MaxVolumes *
++
+將此值設為 256 。
+
+* * NFS.MaxQuesteDepet深度*
++
+將此值設為 128 或更高、以避免佇列瓶頸。
+
+* * NFS.HeartbeatMaxFailures *
++
+針對所有 NFS 組態、將此值設為 10 。
+
+* * NFS.HeartbeatFrequency*
++
+針對所有 NFS 組態、將此值設為 12 。
+
+* * NFS.Heartbeattimeout*
++
+針對所有 NFS 組態、將此值設為 5 。
+
+

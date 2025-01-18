@@ -1,0 +1,88 @@
+---
+permalink: automation/overview-rest-apis.html 
+sidebar: sidebar 
+keywords: REST APIs, swagger 
+summary: 說明如何使用 REST API 來執行多個 ONTAP 工具以執行 VMware vSphere 管理作業。REST API會透過Swagger網頁公開。 
+---
+= REST API總覽
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+REST API 可用於執行多種 ONTAP 工具、以執行 VMware vSphere 管理作業。REST API會透過Swagger網頁公開。
+
+您可以存取 Swagger 網頁、網址為 \https://loadbalancerIP:8443/_ 、以顯示 REST API 文件、以及手動發出 API 呼叫。
+
+
+NOTE: 所有 API 都有 swagger 頁面中提到的要求本文和範例。本節所提供的工作流程和範例僅供參考。
+
+
+
+== 如何存取適用於 VMware vSphere REST API 的 ONTAP 工具
+
+您可以ONTAP 使用多種不同的方法來存取靜態API。
+
+
+
+== 網路考量
+
+您可以透過下列介面連線至REST API：
+
+* 叢集管理LIF
+* 節點管理 LIF
+* SVM管理LIF
+
+
+您選擇使用的 LIF 應設定為支援 HTTPS 管理傳輸協定。此外、網路中的防火牆組態也應該允許 HTTPS 流量。
+
+
+NOTE: 您應該永遠使用叢集管理 LIF 。這會在所有節點之間平衡 API 要求負載、避免發生離線或連線問題的節點。如果您設定了多個叢集管理階層的生命負載、這些都與存取 REST API 的權限相當。
+
+
+
+== 適用於 VMware vSphere API 的 ONTAP 工具線上文件頁面
+
+您可以從適用於 VMware vSphere 外掛程式的 NetApp ONTAP 工具支援頁面中的超連結存取 Swagger 。
+
+用於存取API最新版本文件頁面的URL格式為：
+
+「 https ： ////docs/API <loadbalancer_ip_address> 」
+
+
+
+== 自訂軟體與工具
+
+您可以使用多種不同的程式設計語言和工具、存取適用於 VMware vSphere API 的 ONTAP 工具。熱門選項包括Python、Java、Curl和PowerShell。使用API的程式、指令碼或工具會做為REST Web服務用戶端。使用程式設計語言可深入瞭解 API 、並提供自動化 ONTAP 工具以進行 VMware vSphere 管理的機會。
+
+用於直接存取最新版API的基礎URL格式如下：
+
+「 https ： <loadbalancer_ip_address> / API 」
+
+若要存取支援多個版本的特定API版本、URL格式如下：
+
+「 https ： <loadbalancer_ip_address> / API/v1 」
+
+
+
+== 透過 Swagger UI 存取適用於 VMware vSphere API 的 ONTAP 工具參考文件
+
+您可以透過本機 ONTAP 系統上的 Swagger UI 來存取 ONTAP REST API 文件。
+
+*開始之前*
+
+您應該擁有下列項目：
+
+* 知識集區管理LIF的IP位址或主機名稱ONTAP
+* 具有存取 ONTAP REST API 權限的帳戶使用者名稱和密碼
+
+
+.步驟
+. 在瀏覽器中鍵入 URL 、然後按 * Enter * ： _\https ： ////docs/API_ <ip_address>
+. 使用 ONTAP 帳戶登入
++
+畫面上會顯示「區域功能API」文件頁面、並在底部以主要資源類別來組織API呼叫。ONTAP
+
+. 如需個別API呼叫的範例、請向下捲動至*叢集*類別、然後按一下* Get /cluster *。
+

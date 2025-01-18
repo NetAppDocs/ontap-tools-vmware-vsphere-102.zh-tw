@@ -1,0 +1,28 @@
+---
+permalink: configure/associate-storage-backend.html 
+sidebar: sidebar 
+keywords:  
+summary: 需要資訊。 
+---
+= 將儲存後端與 vCenter Server 執行個體建立關聯
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+vCenter Server 清單頁面會顯示相關的儲存後端數量。每個 vCenter Server 執行個體都有建立儲存後端關聯的選項。
+
+*關於此工作*
+
+此工作可協助您在儲存後端和已登入的 vCenter Server 執行個體之間建立全域對應。
+
+*步驟*
+
+. 從網路瀏覽器啟動 ONTAP 工具管理員： `\https://loadBalanceIP:8443/virtualization/ui/`
+. 使用您在部署期間提供的 VMware vSphere 管理員認證 ONTAP 工具登入。
+. 從側邊列選取 vCenter 。
+. 按一下您要與儲存後端建立關聯的 vCenter 上的垂直省略符號。
+. 從快顯視窗的下拉式清單中選取儲存後端。
+. 選取 * 關聯儲存後端 * 選項、將 vCenter Server 執行個體與所需的儲存後端建立關聯。
+
