@@ -19,24 +19,12 @@ summary: 您可以使用ONTAP VMware vSphere的VMware VMware vCenter功能、在
 
 == HA/CNA 介面卡設定
 
-設定 NetApp 儲存系統的建議 HBA 逾時設定。
+將下列參數設定為預設值：
 
-* *磁碟.QFullSampleSize*
-+
-將所有組態的此值設為 32 。設定此值有助於避免I/O錯誤。
-
-* *磁碟QFullTrresh*
-+
-將所有組態的此值設為 8 。設定此值有助於避免I/O錯誤。
-
-* * Emulex FC HBA超時*
-+
-使用預設值。
-
-* * QLogic FC HBA逾時*
-+
-使用預設值。
-
+* disk.QFullSampleSize.
+* disk.QFullThreshold
+* Emulex FC HBA逾時
+* QLogic FC HBA逾時
 
 
 
