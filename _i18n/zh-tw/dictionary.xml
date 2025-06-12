@@ -342,7 +342,6 @@
   <block id="7f2d9eb042fad8493c138993f867cd80" category="paragraph">清單隨即重新整理、您可以在清單中看到新增的儲存後端。</block>
   <block id="f6c30a782639c90ebe44f3f343922077" category="summary">vCenter Server 執行個體是可讓您控制主機、虛擬機器（ VM ）和儲存後端的集中管理平台。</block>
   <block id="6245e46af5a3bdaf57696763c4214c70" category="doc">新增 vCenter Server 執行個體</block>
-  <block id="9a22df67797f0968951385551d26d202" category="paragraph">vCenter Server 提供集中管理平台、可讓您控制主機、虛擬機器（ VM ）和儲存後端。</block>
   <block id="aaf638e0edd71bac35fef1b1149f3843" category="paragraph">您可以使用單一 VMware vSphere ONTAP 工具執行個體來新增和管理多個 vCenter Server 執行個體。</block>
   <block id="0336e0a2e9f5b95c0d4178d3186ecbf6" category="list-text">從側邊列選取 * vCenters * 。</block>
   <block id="4287076fd3b7cc772889cb75d012c773" category="list-text">選取 * 新增 * 至主機板內建的 vCenter Server 執行個體、並提供 vCenter IP 位址 / 主機名稱、使用者名稱、密碼和連接埠詳細資料。</block>
@@ -676,7 +675,6 @@
   <block id="02ecc951ba9c7de4ba8def4213f1982e" category="list-text">若要檢視受保護的主機叢集、請瀏覽至 * NetApp ONTAP tools* &gt; * Protection * &gt; * 主機叢集關係 * 。</block>
   <block id="88cea8a228e76d96b5b014b926e19795" category="summary">您可以使用適用於 VMware vSphere 遠端外掛程式介面的 ONTAP 工具、向 vCenter Server 執行個體註冊和取消註冊 VASA 提供者。</block>
   <block id="062e7967273cea76dff9c3579a0c44db" category="doc">向 vCenter Server 執行個體登錄 VASA Provider</block>
-  <block id="b59d64b98fd315f6b2bb4cfbeef9a7fd" category="paragraph">您可以使用適用於 VMware vSphere 遠端外掛程式介面的 ONTAP 工具、向 vCenter Server 執行個體註冊和取消註冊 VASA 提供者。Vasa Provider Settings 區段顯示所選 vCenter Server 的 VASA Provider 登錄狀態。</block>
   <block id="711a24c1ed1e14106df5e83af675d10f" category="list-text">選擇 * 設定 * &gt; * VASA 供應商設定 * 。Vasa 提供者註冊狀態顯示為「尚未註冊」。</block>
   <block id="7bd80420c7575554792093f90dbbe6ed" category="list-text">按一下 * 登錄 * 按鈕以登錄 VASA Provider 。</block>
   <block id="2a8034ce8dbfe14fabe94e3ca6c7b860" category="list-text">輸入 VASA 提供者的名稱、並提供 ONTAP 工具以取得 VMware vSphere 應用程式使用者認證、然後按一下 * 註冊 * 。</block>
@@ -1833,4 +1831,7 @@
   <block id="f66a3c183f0e736240b77f8b755c880e" category="list-text">disk.QFullThreshold</block>
   <block id="19c08de7404551288e1274186e039ef4" category="list-text">Emulex FC HBA逾時</block>
   <block id="d46cddda4da7ec11f17472d11df95b68" category="list-text">QLogic FC HBA逾時</block>
+  <block id="a9a74d98e6d11230d876df92acb424fd" category="paragraph">將 vCenter Server 執行個體新增至 VMware vSphere 的 ONTAP 工具，以設定，管理及保護 vCenter Server 環境中的虛擬資料存放區。新增多個 vCenter Server 執行個體時，需要自訂 CA 憑證才能在 ONTAP 工具和每個 vCenter Server 之間進行安全通訊。</block>
+  <block id="56564ecb20e9cb45429b432b22f216f4" category="admonition">MPIO 設定不適用於 NVMe、NVMe/FC 和 NVMe/TCP 協定。</block>
+  <block id="07c9ecda15aaf26d8eef3770025ec27c" category="paragraph">您可以使用適用於 VMware vSphere 的 ONTAP 工具，向 vCenter Server 執行個體註冊 VASA Provider 。VASA Provider 設定區段會顯示所選 vCenter Server 的 VASA Provider 登錄狀態。在多重 vCenter 部署中，請確保每個 vCenter Server 執行個體都有自訂 CA 憑證。</block>
 </blocks>
